@@ -65,5 +65,33 @@ while True :
                 break
         if not found :
             print("Nama tidak ditemukan")
+    elif menu == "3":
+        found = False
+        key_nama = input("Nama mahasiswa? ")
+        for mhs in datamhs:
+            if mhs.nama == key_nama:
+                datamhs.remove(mhs)
+                found = True
+                print("Data berhasil terhapus")
+                break
+        if not found :
+            print("Nama tidak ditemukan")
+    elif menu == "4":
+        print("-----------------------------------------------------")
+        print("|{:^15}|{:^8}|{:^8}|{:^8}|{:^8}|".format("NAMA","PRAK 1","PRAK 2","PRAK 3","RERATA"))
+        print("-----------------------------------------------------")
+        for mhs in datamhs:
+            print("|{:^15}|{:^8}|{:^8}|{:^8}|{:^8}|".format(mhs.nama,mhs.prak1,mhs.prak2,mhs.prak3,mhs.getRata()))
+        print("-----------------------------------------------------")
+    elif menu == "5":
+        sourceFile = open(filename, 'w')
+        for mhs in datamhs:
+            print(mhs.nama+" "+str(mhs.prak1)+" "+str(mhs.prak2)+" "+str(mhs.prak3)+" "+str(mhs.getRata()), file = sourceFile)
+        sourceFile.close()
+        print("Data berhasil tersimpan")
+    elif menu == "6":
+        exit("TERIMA KASIH!")
+    print("\n")
     
+
     
